@@ -10,6 +10,7 @@ import { Crown, Edit, FileIcon, ShieldCheck, Trash } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
+import { format, isToday, isYesterday } from "date-fns";
 
 import { UserAvatar } from "@/components/user-avatar";
 import { ActionTooltip } from "@/components/action-tooltip";
@@ -23,6 +24,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/hooks/use-modal-store";
+
+
+
+const getFormattedDate = (createdAt: Date) => {
+  if (isToday(createdAt)) {
+      return `Today at ${format(createdAt, "hh:mm a")}`;
+  } else if (isYesterday(createdAt)) {
+      return `Yesterday at ${format(createdAt, "hh:mm a")}`;
+  } else {
+      return format(createdAt, "dd MMM yyyy, hh:mm a");
+  }
+};
+
 
 interface ChatItemProps {
   id: string;
@@ -144,7 +158,7 @@ export const ChatItem = ({
               </ActionTooltip>
             </div>
             <span className="text-xs text-zinc-500 dark:text-zinc-400">
-              {timestamp}
+              {getFormattedDate(new Date(timestamp))}
             </span>
           </div>
           {isImage && (
