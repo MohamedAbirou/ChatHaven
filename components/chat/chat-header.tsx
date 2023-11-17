@@ -4,6 +4,7 @@ import { MobileToggle } from "@/components/mobile-toggle";
 import { UserAvatar } from "@/components/user-avatar";
 
 import { ChatVideoButton } from "./chat-video-button";
+import { ChatAudioButton } from "./chat-audio-button";
 
 interface ChatHeaderProps {
   serverId: string;
@@ -37,7 +38,10 @@ export const ChatHeader = ({
           </p>
       <div className="ml-auto flex items-center">
         {type === "conversation" && (
-          <ChatVideoButton />
+          <div className="flex items-center gap-2">
+            <ChatAudioButton />
+            <ChatVideoButton />
+          </div>
         )}
       </div>
     </div>

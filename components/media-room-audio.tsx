@@ -7,17 +7,17 @@ import { Channel } from "@prisma/client";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 
-interface MediaRoomProps {
+interface MediaRoomAudioProps {
   chatId: string;
   video: boolean;
   audio: boolean;
 };
 
-export const MediaRoom = ({
+export const MediaRoomAudio = ({
   chatId,
   video,
   audio
-}: MediaRoomProps) => {
+}: MediaRoomAudioProps) => {
   const { user } = useUser();
   const [token, setToken] = useState("");
 
