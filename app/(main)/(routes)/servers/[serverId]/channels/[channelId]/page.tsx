@@ -6,7 +6,8 @@ import { currentProfile } from "@/lib/current-profile";
 import { ChatHeader } from "@/components/chat/chat-header";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessages } from "@/components/chat/chat-messages";
-import { MediaRoom } from "@/components/media-room-video";
+import { MediaRoomVideo } from "@/components/media-room-video";
+import { MediaRoomAudio } from "@/components/media-room-audio";
 import { db } from "@/lib/db";
 
 interface ChannelIdPageProps {
@@ -77,14 +78,14 @@ const ChannelIdPage = async ({
         </>
       )}
       {channel.type === ChannelType.AUDIO && (
-        <MediaRoom
+        <MediaRoomAudio
           chatId={channel.id}
           video={false}
           audio={true}
         />
       )}
       {channel.type === ChannelType.VIDEO && (
-        <MediaRoom
+        <MediaRoomVideo
           chatId={channel.id}
           video={true}
           audio={true}
