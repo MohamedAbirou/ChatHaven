@@ -33,7 +33,7 @@ const getFormattedDate = (createdAt: Date) => {
   } else if (isYesterday(createdAt)) {
       return `Yesterday at ${format(createdAt, "hh:mm a")}`;
   } else {
-      return format(createdAt, "dd MMM yyyy, hh:mm a");
+      return format(createdAt, "dd/MM/yyyy hh:mm a");
   }
 };
 
