@@ -1,4 +1,4 @@
-#  ChatHaven
+#  ChatHaven (BETA)
 ## Demo:
 
 [ChatHaven](https://chathaven-production.up.railway.app/)
